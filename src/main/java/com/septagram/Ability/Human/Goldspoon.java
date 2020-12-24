@@ -22,7 +22,7 @@ public class Goldspoon extends Ability {
 
     public void T_Passive(PlayerRespawnEvent event){
         Player p=event.getPlayer();
-        p.getInventory().addItem(new ItemStack(Material.GOLDEN_LEGGINGS));
+        p.getInventory().addItem(new ItemStack(Material.GOLD_LEGGINGS));
     }
 
 }

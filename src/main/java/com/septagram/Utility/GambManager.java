@@ -22,7 +22,7 @@ public class GambManager {
             }
             else if(rn== 5 || rn <= 19){
                 player.sendMessage(ChatColor.GOLD+"대박! 짜잔! 원목 3개 당첨 축하드립니다!");
-                player.getInventory().addItem(new ItemStack(Material.OAK_LOG, 3));
+                player.getInventory().addItem(new ItemStack(Material.LOG, 3));
             }
             else if(rn==20 || rn<=34){
                 player.sendMessage(ChatColor.RED+"꽝!");

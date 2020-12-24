@@ -53,7 +53,7 @@ public class Miner extends Ability
         Player p=(Player)event.getDamager();
         if(p.getName().equals(playerName)){
             Material m=p.getItemInHand().getType();
-            if(m.equals(Material.WOODEN_PICKAXE)||m.equals(Material.STONE_PICKAXE)||
+            if(m.equals(Material.WOOD_PICKAXE)||m.equals(Material.STONE_PICKAXE)||
                     m.equals(Material.IRON_PICKAXE)||m.equals(Material.DIAMOND_PICKAXE)){
                 event.setDamage(4);
             }

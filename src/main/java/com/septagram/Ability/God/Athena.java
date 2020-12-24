@@ -75,13 +75,13 @@ public class Athena extends Ability
                 if (abilityLimitCounter>1)
                 {
                     Skill.Use(player, co, sta2, 2, cool2);
-                    player.getInventory().addItem(new ItemStack(Material.ENCHANTING_TABLE,1));
+                    player.getInventory().addItem(new ItemStack(Material.ENCHANTMENT_TABLE,1));
                     player.sendMessage("남은 교환 횟수 : "+--abilityLimitCounter);
                 }
                 else
                 {
                     Skill.Use(player, co, sta2, 2, 0);
-                    player.getInventory().addItem(new ItemStack(Material.ENCHANTING_TABLE,1));
+                    player.getInventory().addItem(new ItemStack(Material.ENCHANTMENT_TABLE,1));
                     player.sendMessage("남은 교환 횟수 : "+--abilityLimitCounter);
                 }
             }

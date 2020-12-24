@@ -32,23 +32,25 @@ public class GUISetting {
 
         ArrayList<ItemStack> wool=new ArrayList<>();
         ArrayList<ItemMeta> meta=new ArrayList<>();
-        ArrayList<Material> dura=new ArrayList<>();
+        ArrayList<Integer> dura=new ArrayList<>();
 
-        dura.add(Theomachy.INVENTORY_CLEAR ? Material.LIME_WOOL:Material.RED_WOOL);
-        dura.add(Theomachy.GIVE_ITEM ? Material.LIME_WOOL:Material.RED_WOOL);
-        dura.add(Theomachy.ENTITIES_REMOVE ? Material.LIME_WOOL:Material.RED_WOOL);
-        dura.add(Theomachy.IGNORE_BED ? Material.LIME_WOOL:Material.RED_WOOL);
-        dura.add(Theomachy.FAST_START ? Material.LIME_WOOL:Material.RED_WOOL);
-        dura.add(Theomachy.AUTO_SAVE ? Material.LIME_WOOL:Material.RED_WOOL);
-        dura.add(Theomachy.ANIMAL  ? Material.LIME_WOOL:Material.RED_WOOL);
-        dura.add(Theomachy.MONSTER  ? Material.LIME_WOOL:Material.RED_WOOL);
-        dura.add(Theomachy.GAMB ? Material.LIME_WOOL:Material.RED_WOOL);
-        dura.add(Theomachy.PROTECT ? Material.LIME_WOOL:Material.RED_WOOL);
-        dura.add(Theomachy.FORBID ? Material.LIME_WOOL:Material.RED_WOOL);
-        dura.add(Theomachy.SCOREBOARD ? Material.LIME_WOOL:Material.RED_WOOL);
+        dura.add(Theomachy.INVENTORY_CLEAR ? 5:14);
+        dura.add(Theomachy.GIVE_ITEM ? 5:14);
+        dura.add(Theomachy.ENTITIES_REMOVE ? 5:14);
+        dura.add(Theomachy.IGNORE_BED ? 5:14);
+        dura.add(Theomachy.FAST_START ? 5:14);
+        dura.add(Theomachy.AUTO_SAVE ? 5:14);
+        dura.add(Theomachy.ANIMAL  ? 5:14);
+        dura.add(Theomachy.MONSTER  ? 5:14);
+        dura.add(Theomachy.GAMB ? 5:14);
+        dura.add(Theomachy.PROTECT ? 5:14);
+        dura.add(Theomachy.FORBID ? 5:14);
+        dura.add(Theomachy.SCOREBOARD ? 5:14);
 
         for(int i=0;i<dura.size();i++) {
-            wool.add(new ItemStack(dura.get(i)));
+            ItemStack is=new ItemStack(Material.WOOL);
+            is.setDurability(dura.get(i).shortValue());
+            wool.add(is);
             meta.add(wool.get(i).getItemMeta());
         }
 
@@ -84,55 +86,55 @@ public class GUISetting {
     }
 
     public static void guiListener(ItemStack wool){
-
+        int code=wool.getDurability();
         switch(ChatColor.stripColor(wool.getItemMeta().getDisplayName())) {
             case "게임 시작 시 인벤토리 클리어":
-                if(wool.getType().equals(Material.LIME_WOOL)) { Theomachy.INVENTORY_CLEAR=false; wool.setType(Material.RED_WOOL);}
-                else { Theomachy.INVENTORY_CLEAR=true; wool.setType(Material.LIME_WOOL); }
+                if(code==5) { Theomachy.INVENTORY_CLEAR=false; wool.setDurability((short)14);}
+                else { Theomachy.INVENTORY_CLEAR=true; wool.setDurability((short)5); }
                 break;
             case "게임 시작 시 스카이블럭 아이템 지급":
-                if(wool.getType().equals(Material.LIME_WOOL)) { Theomachy.GIVE_ITEM=false; wool.setType(Material.RED_WOOL);}
-                else { Theomachy.GIVE_ITEM=true; wool.setType(Material.LIME_WOOL); }
+                if(code==5) { Theomachy.GIVE_ITEM=false; wool.setDurability((short)14);}
+                else { Theomachy.GIVE_ITEM=true; wool.setDurability((short)5); }
                 break;
             case "게임 시작 시 엔티티 제거":
-                if(wool.getType().equals(Material.LIME_WOOL)) { Theomachy.ENTITIES_REMOVE=false; wool.setType(Material.RED_WOOL);}
-                else { Theomachy.ENTITIES_REMOVE=true; wool.setType(Material.LIME_WOOL); }
+                if(code==5) { Theomachy.ENTITIES_REMOVE=false; wool.setDurability((short)14);}
+                else { Theomachy.ENTITIES_REMOVE=true; wool.setDurability((short)5); }
                 break;
             case "침대 무시":
-                if(wool.getType().equals(Material.LIME_WOOL)) { Theomachy.IGNORE_BED=false; wool.setType(Material.RED_WOOL);}
-                else { Theomachy.IGNORE_BED=true; wool.setType(Material.LIME_WOOL); }
+                if(code==5) { Theomachy.IGNORE_BED=false; wool.setDurability((short)14);}
+                else { Theomachy.IGNORE_BED=true; wool.setDurability((short)5); }
                 break;
             case "빠른 시작":
-                if(wool.getType().equals(Material.LIME_WOOL)) { Theomachy.FAST_START=false; wool.setType(Material.RED_WOOL);}
-                else { Theomachy.FAST_START=true; wool.setType(Material.LIME_WOOL); }
+                if(code==5) { Theomachy.FAST_START=false; wool.setDurability((short)14);}
+                else { Theomachy.FAST_START=true; wool.setDurability((short)5); }
                 break;
             case "서버 자동 저장":
-                if(wool.getType().equals(Material.LIME_WOOL)) { Theomachy.AUTO_SAVE=false; wool.setType(Material.RED_WOOL);}
-                else { Theomachy.AUTO_SAVE=true; wool.setType(Material.LIME_WOOL); }
+                if(code==5) { Theomachy.AUTO_SAVE=false; wool.setDurability((short)14);}
+                else { Theomachy.AUTO_SAVE=true; wool.setDurability((short)5); }
                 break;
             case "동물 스폰":
-                if(wool.getType().equals(Material.LIME_WOOL)) { Theomachy.ANIMAL=false; wool.setType(Material.RED_WOOL);}
-                else { Theomachy.ANIMAL=true; wool.setType(Material.LIME_WOOL); }
+                if(code==5) { Theomachy.ANIMAL=false; wool.setDurability((short)14);}
+                else { Theomachy.ANIMAL=true; wool.setDurability((short)5); }
                 break;
             case "몬스터 스폰":
-                if(wool.getType().equals(Material.LIME_WOOL)) { Theomachy.MONSTER=false; wool.setType(Material.RED_WOOL);}
-                else { Theomachy.MONSTER=true; wool.setType(Material.LIME_WOOL); }
+                if(code==5) { Theomachy.MONSTER=false; wool.setDurability((short)14);}
+                else { Theomachy.MONSTER=true; wool.setDurability((short)5); }
                 break;
             case "도박 허용":
-                if(wool.getType().equals(Material.LIME_WOOL)) { Theomachy.GAMB=false; wool.setType(Material.RED_WOOL);}
-                else { Theomachy.GAMB=true; wool.setType(Material.LIME_WOOL); }
+                if(code==5) { Theomachy.GAMB=false; wool.setDurability((short)14);}
+                else { Theomachy.GAMB=true; wool.setDurability((short)5); }
                 break;
             case "다이아몬드 블록 방어":
-                if(wool.getType().equals(Material.LIME_WOOL)) { Theomachy.PROTECT=false; wool.setType(Material.RED_WOOL);}
-                else { Theomachy.PROTECT=true; wool.setType(Material.LIME_WOOL); }
+                if(code==5) { Theomachy.PROTECT=false; wool.setDurability((short)14);}
+                else { Theomachy.PROTECT=true; wool.setDurability((short)5); }
                 break;
             case "다이아 곡괭이 금지":
-                if(wool.getType().equals(Material.LIME_WOOL)) { Theomachy.FORBID=false; wool.setType(Material.RED_WOOL);}
-                else { Theomachy.FORBID=true; wool.setType(Material.LIME_WOOL); }
+                if(code==5) { Theomachy.FORBID=false; wool.setDurability((short)14);}
+                else { Theomachy.FORBID=true; wool.setDurability((short)5); }
                 break;
             case "스코어보드 안내 사용":
-                if(wool.getType().equals(Material.LIME_WOOL)) { Theomachy.SCOREBOARD=false; wool.setType(Material.RED_WOOL);}
-                else { Theomachy.SCOREBOARD=true; wool.setType(Material.LIME_WOOL); }
+                if(code==5) { Theomachy.SCOREBOARD=false; wool.setDurability((short)14);}
+                else { Theomachy.SCOREBOARD=true; wool.setDurability((short)5); }
                 break;
         }
     }

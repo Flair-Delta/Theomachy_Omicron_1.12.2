@@ -25,8 +25,8 @@ public class Help {
             Inventory i=Bukkit.createInventory(null, 18, ChatColor.BLACK+":::::::: 능력 정보 ::::::::");
             ItemStack abname=new ItemStack(Material.ITEM_FRAME);
             ItemStack abdes=new ItemStack(Material.BOOK);
-            ItemStack abcool1=new ItemStack(Material.CLOCK);
-            ItemStack abcool2=new ItemStack(Material.CLOCK);
+            ItemStack abcool1=new ItemStack(Material.WATCH);
+            ItemStack abcool2=new ItemStack(Material.WATCH);
             ItemStack rank = new ItemStack(Material.AIR);
 
             ItemMeta a=abname.getItemMeta();
@@ -86,8 +86,8 @@ public class Help {
 
             if(ability.activeType) {
                 if(ability.cool2!=-1) {
-                    abcool1=new ItemStack(Material.CLOCK);
-                    abcool2=new ItemStack(Material.CLOCK);
+                    abcool1=new ItemStack(Material.WATCH);
+                    abcool2=new ItemStack(Material.WATCH);
 
                     List<String> clore=new ArrayList<>();
                     c.setDisplayName(ChatColor.GREEN+"~ 일반 능력 ~");
@@ -110,7 +110,7 @@ public class Help {
                     i.setItem(17, abcool2);
 
                 }else {
-                    abcool1=new ItemStack(Material.CLOCK);
+                    abcool1=new ItemStack(Material.WATCH);
 
                     List<String> clore=new ArrayList<>();
                     c.setDisplayName(ChatColor.GREEN+"~ 일반 능력 ~");
@@ -124,8 +124,8 @@ public class Help {
                 }
             }if (ability.passiveType) {
                 if(ability.activeType && ability.sta2==-1){
-                    abcool1=new ItemStack(Material.CLOCK);
-                    abcool2=new ItemStack(Material.CLOCK);
+                    abcool1=new ItemStack(Material.WATCH);
+                    abcool2=new ItemStack(Material.WATCH);
 
                     List<String> clore=new ArrayList<>();
                     c.setDisplayName(ChatColor.GREEN+"~ 일반 능력 ~");
@@ -144,7 +144,7 @@ public class Help {
                     i.setItem(17, abcool2);
 
                 }else{
-                    abcool1=new ItemStack(Material.CLOCK);
+                    abcool1=new ItemStack(Material.WATCH);
 
                     List<String> clore=new ArrayList<>();
                     c.setDisplayName(ChatColor.GREEN+"~ 패시브 능력 ~");

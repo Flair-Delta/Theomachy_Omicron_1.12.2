@@ -26,16 +26,15 @@ public class Gardener extends Ability {
     public void T_Passive(BlockBreakEvent event)
     {
         Material m=event.getBlock().getType();
-        if(m.equals(Material.ACACIA_LOG) || m.equals(Material.OAK_LOG) || m.equals(Material.DARK_OAK_LOG) ||
-           m.equals(Material.BIRCH_LOG) || m.equals(Material.JUNGLE_LOG) || m.equals(Material.SPRUCE_LOG)){
-            event.getPlayer().getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemStack(Material.POPPY, 1));
+        if(m.equals(Material.LOG)){
+            event.getPlayer().getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemStack(Material.RED_ROSE, 1));
             event.getPlayer().getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemStack(Material.COBBLESTONE, 1));
         }
     }
 
     public void conditionSet(){
-        Bukkit.getPlayer(playerName).getInventory().addItem(new ItemStack(Material.OAK_SAPLING, 5));
-        Bukkit.getPlayer(playerName).getInventory().addItem(new ItemStack(Material.BONE_MEAL, 10));
+        Bukkit.getPlayer(playerName).getInventory().addItem(new ItemStack(Material.SAPLING, 5));
+        Bukkit.getPlayer(playerName).getInventory().addItem(new ItemStack(Material.BONE, 3));
     }
 
 }

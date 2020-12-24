@@ -41,12 +41,12 @@ public class PlayerInventory
         }
         if (Theomachy.GIVE_ITEM)
         {
-            inventory.addItem(new ItemStack(Material.CHEST,1));
-            inventory.addItem(new ItemStack(Material.LAVA_BUCKET,1));
-            inventory.addItem(new ItemStack(Material.LAVA_BUCKET,1));
+            inventory.addItem(new ItemStack(Material.CHEST));
+            inventory.addItem(new ItemStack(Material.LAVA_BUCKET));
+            inventory.addItem(new ItemStack(Material.LAVA_BUCKET));
             inventory.addItem(new ItemStack(Material.ICE,2));
-            inventory.addItem(new ItemStack(Material.OAK_SAPLING,1));
-            inventory.addItem(new ItemStack(Material.BONE_MEAL,1));
+            inventory.addItem(new ItemStack(Material.SAPLING));
+            inventory.addItem(new ItemStack(Material.BONE));
         }
     }
 }

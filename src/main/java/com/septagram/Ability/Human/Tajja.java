@@ -56,7 +56,7 @@ public class Tajja extends Ability {
                 for(ItemStack i:player.getInventory().getContents()) {
                     try {
                         switch(i.getType()) {
-                            case WOODEN_SWORD:case GOLDEN_SWORD:
+                            case WOOD_SWORD:case GOLD_SWORD:
                                 sword=4;
                                 player.getInventory().removeItem(i);
                                 break;
@@ -95,17 +95,14 @@ public class Tajja extends Ability {
         if(p.getName().equals(this.playerName)) {
             if(p.getItemInHand().getType().equals(Material.AIR)) {
                 if(sword!=0) {
-                    switch(time) {
-                        case 1:
-                            event.setDamage(sword);
-                            p.sendMessage("동작 그만, 밑장 빼기냐.");
-                            sword=0;
-                            time=-1;
-                            break;
-                        default:
-                            event.setDamage(sword);
-                            time--;
-                            break;
+                    if(time==1) {
+                        event.setDamage(sword);
+                        p.sendMessage("동작 그만, 밑장 빼기냐.");
+                        sword=0;
+                        time=-1;
+                    }else {
+                        event.setDamage(sword);
+                        time--;
                     }
                 }
             }

@@ -48,21 +48,21 @@ public class Blacklist {
         ItemMeta[] meta=new ItemMeta[god.length+man.length+2];
 
         for(int i=1;i<=god.length;i++) {
-            wool[i-1]=new ItemStack(Material.WHITE_WOOL);
+            wool[i-1]=new ItemStack(Material.WOOL);
             meta[i]=wool[i-1].getItemMeta();
-            meta[i].setDisplayName(ChatColor.WHITE+ReturnAbilityName.name(i) + " : "+i);
-            if(!Blacklist.contains(i)) {wool[i-1].setType(Material.LIME_WOOL);}
-            else {wool[i-1].setType(Material.RED_WOOL);}
+            meta[i].setDisplayName(ChatColor.WHITE+ReturnAbilityName.name(i) + " : "+String.valueOf(i));
+            if(!Blacklist.contains(i)) {wool[i-1].setDurability((short)5);}
+            else {wool[i-1].setDurability((short)14);}
             wool[i-1].setItemMeta(meta[i]);
         }
 
         int b=101;
         for(int i=god.length;i<(god.length+man.length);i++) {
-            wool[i]=new ItemStack(Material.WHITE_WOOL);
+            wool[i]=new ItemStack(Material.WOOL);
             meta[i]=wool[i].getItemMeta();
             meta[i].setDisplayName(ChatColor.WHITE+ReturnAbilityName.name(b) + " : "+b);
-            if(!Blacklist.contains(b)) {wool[i].setType(Material.LIME_WOOL);}
-            else {wool[i].setType(Material.RED_WOOL);}
+            if(!Blacklist.contains(b)) {wool[i].setDurability((short)5);}
+            else {wool[i].setDurability((short)14);}
             wool[i].setItemMeta(meta[i]);
             b++;
         }

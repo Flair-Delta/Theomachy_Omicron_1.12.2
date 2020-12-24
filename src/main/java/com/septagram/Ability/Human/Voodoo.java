@@ -44,23 +44,9 @@ public class Voodoo extends Ability
         this.rank=3;
     }
 
-    private boolean checkSign(Material m) {
-
-        switch(m) {
-            case ACACIA_SIGN: case ACACIA_WALL_SIGN: case BIRCH_SIGN: case BIRCH_WALL_SIGN:
-            case CRIMSON_SIGN: case CRIMSON_WALL_SIGN: case DARK_OAK_SIGN: case DARK_OAK_WALL_SIGN:
-            case JUNGLE_SIGN: case JUNGLE_WALL_SIGN: case OAK_SIGN: case OAK_WALL_SIGN:
-            case SPRUCE_SIGN: case SPRUCE_WALL_SIGN: case WARPED_SIGN: case WARPED_WALL_SIGN:
-                return true;
-        }
-
-        return false;
-    }
-
     public void T_Passive(BlockPlaceEvent event)
     {
-        Block blockId = event.getBlock();
-        if (checkSign(blockId.getType()))
+        if (event.getBlock().getType().equals(Material.SIGN))
         {
             Player player = event.getPlayer();
 
@@ -76,7 +62,7 @@ public class Voodoo extends Ability
             if (event.getAction() == Action.LEFT_CLICK_BLOCK)
             {
                 Block block = event.getClickedBlock();
-                if (checkSign(block.getType())&& this.postSign.getState().equals(block.getState()))
+                if (block.getType().equals(Material.SIGN)&& this.postSign.getState().equals(block.getState()))
                 {
                     Player player = Bukkit.getPlayer(targetName);
                     if (player != null)
@@ -85,7 +71,7 @@ public class Voodoo extends Ability
                 }
             }
         }
-        else if (checkSign(event.getPlayer().getItemInHand().getType()))
+        else if (event.getPlayer().getItemInHand().getType().equals(Material.SIGN))
         {
             Action action = event.getAction();
             if (action == Action.LEFT_CLICK_AIR || action == Action.LEFT_CLICK_BLOCK)

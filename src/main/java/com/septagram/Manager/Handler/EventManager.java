@@ -362,9 +362,8 @@ public class EventManager implements Listener
             ItemMeta meta=wool.getItemMeta();
 
             if(ChatColor.stripColor(event.getView().getTitle()).equals(":: 블랙리스트 ::")) {
-
-                if(wool.getType().equals(Material.LIME_WOOL)) {
-                    wool.setType(Material.RED_WOOL);
+                if(wool.getDurability()==(short)5) {
+                    wool.setDurability((short)14);
                     String[] y=meta.getDisplayName().split(" ");
                     int num=Integer.parseInt(y[y.length-1]);
                     Blacklist.Blacklist.add(num);
@@ -375,8 +374,8 @@ public class EventManager implements Listener
                     }catch(Exception e) {}
                     Bukkit.broadcastMessage(ChatColor.GREEN+"【 알림 】 "+ChatColor.WHITE+y[0]+josa+" "+ChatColor.RED+"블랙리스트"+ChatColor.WHITE+"에 등록되었습니다.");
                     return;
-                }else if(wool.getType().equals(Material.RED_WOOL)) {
-                    wool.setType(Material.LIME_WOOL);
+                }if(wool.getDurability()==(short)14) {
+                    wool.setDurability((short)5);
                     String[] y=meta.getDisplayName().split(" ");
                     int num=Integer.parseInt(y[y.length-1]);
                     Object o=num;
@@ -384,7 +383,7 @@ public class EventManager implements Listener
 
                     String josa="가";
                     try {
-                        josa= Hangul.getJosa(y[0].charAt(y[0].toCharArray().length-1), "이", "가");
+                        josa=Hangul.getJosa(y[0].charAt(y[0].toCharArray().length-1), "이", "가");
                     }catch(Exception e) {}
                     Bukkit.broadcastMessage(ChatColor.GREEN+"【 알림 】 "+ChatColor.WHITE+y[0]+josa+" "+ChatColor.RED+"블랙리스트"+ChatColor.WHITE+"에서 벗어났습니다.");
                     return;

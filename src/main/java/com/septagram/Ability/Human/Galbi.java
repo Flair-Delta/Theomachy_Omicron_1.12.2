@@ -53,7 +53,7 @@ public class Galbi extends Ability {
         {
             Skill.Use(player, co, sta1, 0,cool1);
             Inventory inventory = player.getInventory();
-            inventory.addItem(new ItemStack(Material.COOKED_PORKCHOP, 3));
+            inventory.addItem(new ItemStack(Material.GRILLED_PORK, 3));
         }
     }
 

@@ -16,7 +16,7 @@ public class ScoreboardTimer implements Runnable{
 
         for(Player p: Bukkit.getOnlinePlayers()){
             Scoreboard sb=Bukkit.getScoreboardManager().getNewScoreboard();
-            Objective ob=sb.registerNewObjective("INFO", "Obj", ChatColor.YELLOW+"안내판");
+            Objective ob=sb.registerNewObjective(ChatColor.YELLOW+"안내판",  ChatColor.YELLOW+"안내판");
             ob.setDisplaySlot(DisplaySlot.SIDEBAR);
             Ability a=GameData.PlayerAbility.get(p.getName());
 

@@ -127,7 +127,7 @@ public class Assasin extends Ability
                                 break;
                         }
                         player.teleport(location);
-                        world.dropItem(fakeLocation.add(0,1,0), new ItemStack(Material.POPPY, 1));
+                        world.dropItem(fakeLocation.add(0,1,0), new ItemStack(Material.RED_ROSE, 1));
                         for (Player each : playerlist)
                             each.showPlayer(player);
                         flag=false;

@@ -62,7 +62,7 @@ public class Snow extends Ability {
         Player p=(Player)event.getEntity();
         event.setCancelled(true);
         p.damage(attack);
-        p.getInventory().addItem(new ItemStack(Material.SNOWBALL));
+        p.getInventory().addItem(new ItemStack(Material.SNOW_BALL));
     }
 
     public void T_Passive(EntityDamageEvent event){
@@ -73,7 +73,7 @@ public class Snow extends Ability {
     }
 
     public void conditionSet(){
-        Bukkit.getPlayer(playerName).getInventory().addItem(new ItemStack(Material.SNOWBALL, 8));
+        Bukkit.getPlayer(playerName).getInventory().addItem(new ItemStack(Material.SNOW_BALL));
     }
 
 }
